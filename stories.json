@@ -1,0 +1,27 @@
+[
+  {
+    "id": "midnight-signal",
+    "title": "The Midnight Signal",
+    "date": "November 20, 2026",
+    "readTime": "3 min read",
+    "genre": "Sci-Fi",
+    "excerpt": "Every Tuesday at 2:14 AM, the old radio tower on Pine Ridge broadcasts a sequence nobody can decode.",
+    "content": [
+      "The static always cleared three seconds before the tone began.",
+      "Leo leaned closer to the desk, adjusting the brass dial until the green phosphor glow of the oscilloscope steadied into a clean sine wave. He had been logging the transmissions since October, filling three spiral notebooks with rows of numbers that refused to match any known cipher.",
+      "Tonight, however, the pattern changed. Instead of the usual five-pulse cadence, the speaker crackled with a single, unmistakable voice."
+    ]
+  },
+  {
+    "id": "lantern-market",
+    "title": "The Lantern Market",
+    "date": "November 15, 2026",
+    "readTime": "2 min read",
+    "genre": "Fantasy",
+    "excerpt": "At the edge of the harbor, merchants trade memories instead of silver.",
+    "content": [
+      "You never bring coins to the Lantern Market. You bring a jar, a cork, and something you are willing to forget.",
+      "Mara kept her hand wrapped tightly around the glass bottle in her coat pocket. Inside swirled a faint silver mist—the memory of her seventh birthday, traded away for a compass that only pointed toward lost things."
+    ]
+  }
+]
