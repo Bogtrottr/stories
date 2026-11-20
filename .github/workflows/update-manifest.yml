@@ -1,0 +1,33 @@
+name: Auto-Update Story Manifest
+
+on:
+  push:
+    paths:
+      - 'texts/*.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate texts/manifest.json
+        run: |
+          python3 -c '
+          import os, json
+          files = sorted([f for f in os.listdir("texts") if f.endswith(".txt")])
+          with open("texts/manifest.json", "w") as out:
+              json.dump(files, out, indent=2)
+          '
+
+      - name: Commit updated manifest
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add texts/manifest.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update story list" && git push)
