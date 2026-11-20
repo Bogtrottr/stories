@@ -20,15 +20,14 @@
       justify-content: center;
       align-items: flex-start;
       padding: 40px 16px 60px;
-      /* Classic Bliss-inspired rolling green hills & blue sky background */
-      background-color: #3a7bd5;
+      /* Exact same Windows XP Bliss green hills & blue sky wallpaper */
+      background-color: #008080;
       background-image: 
-        radial-gradient(ellipse 140% 55% at 30% 100%, #4e9a16 0%, #3b7d0e 65%, transparent 66%),
-        radial-gradient(ellipse 120% 45% at 85% 100%, #5cb319 0%, #438a10 70%, transparent 71%),
-        radial-gradient(circle at 25% 22%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 28%),
-        radial-gradient(circle at 72% 18%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 32%),
-        radial-gradient(circle at 85% 30%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 25%),
-        linear-gradient(180deg, #2463c9 0%, #6ea8eb 55%, #a8cef5 75%);
+        radial-gradient(ellipse 130% 60% at 30% 100%, #3a7a10 0%, #2e610c 60%, transparent 61%),
+        radial-gradient(ellipse 120% 50% at 75% 100%, #469113 0%, #37730e 65%, transparent 66%),
+        radial-gradient(circle at 20% 25%, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 30%),
+        radial-gradient(circle at 75% 20%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 35%),
+        linear-gradient(180deg, #1d52bc 0%, #5794e2 50%, #9fc3f7 75%, #cde1fc 100%);
       background-attachment: fixed;
     }
 
@@ -121,7 +120,7 @@
       gap: 14px;
     }
 
-    /* Sunken White Header Box (Matches top bio box in reference) */
+    /* Sunken White Header Box */
     .sunken-box {
       background-color: #ffffff;
       border-top: 2px solid #808080;
@@ -171,7 +170,7 @@
       color: #000000;
     }
 
-    /* Story Buttons Stack (Matches the chunky buttons in reference) */
+    /* Story Buttons Stack */
     .story-btn-list {
       display: flex;
       flex-direction: column;
@@ -220,7 +219,7 @@
       color: #333333;
     }
 
-    /* Reader View (Notepad / WordPad Document Window) */
+    /* Reader View */
     #reader-view {
       display: none;
     }
@@ -288,7 +287,7 @@
       margin-bottom: 14px;
     }
 
-    /* Bottom Status Bar (Matches C:\Users\... | Online bar in reference) */
+    /* Bottom Status Bar */
     .status-bar {
       display: flex;
       gap: 4px;
@@ -313,7 +312,6 @@
 <body>
 
   <div class="win-window">
-    <!-- Blue Window Title Bar -->
     <div class="title-bar">
       <span>Bogtrottr_Stories.exe - Short Story Directory</span>
       <div class="title-controls">
@@ -323,20 +321,15 @@
       </div>
     </div>
 
-    <!-- Classic Menu Bar -->
     <div class="menu-bar">
       <a href="#" class="menu-item" onclick="showList(); return false;"><span>F</span>ile</a>
       <a href="https://bogtrottr.github.io" class="menu-item"><span>L</span>inks</a>
       <a href="#" class="menu-item" onclick="showList(); return false;"><span>V</span>iew</a>
-      <!-- Password-protected GitHub Writer Login -->
       <a href="https://github.com/Bogtrottr/stories/edit/main/stories.json" target="_blank" class="menu-item"><span>W</span>riter Login</a>
       <a href="#" class="menu-item" onclick="alert('Bogtrottr Stories v1.0\nClick any story button to open it in the reader!'); return false;"><span>H</span>elp</a>
     </div>
 
-    <!-- Main Window Content -->
     <div class="window-body">
-      
-      <!-- Top Intro Box -->
       <div class="sunken-box">
         <div class="pixel-icon">📖</div>
         <div class="header-text">
@@ -345,7 +338,6 @@
         </div>
       </div>
 
-      <!-- View 1: Story Button Directory -->
       <fieldset id="list-view">
         <legend>Bogtrottr's Short Stories</legend>
         <div id="story-container" class="story-btn-list">
@@ -353,7 +345,6 @@
         </div>
       </fieldset>
 
-      <!-- View 2: Story Document Reader -->
       <fieldset id="reader-view">
         <legend id="reader-legend">Story_Reader.txt</legend>
         <div class="reader-toolbar">
@@ -367,12 +358,10 @@
         </div>
       </fieldset>
 
-      <!-- Bottom Status Bar -->
       <div class="status-bar">
         <div id="status-path" class="status-panel status-path">C:\Users\Bogtrottr\Stories</div>
         <div class="status-panel">Online</div>
       </div>
-
     </div>
   </div>
 
