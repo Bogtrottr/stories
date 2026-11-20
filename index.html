@@ -210,7 +210,7 @@
       padding: 10px 11px 8px 13px;
     }
 
-    .btn-subtitle {
+    .btn-meta {
       font-size: 11px;
       font-weight: normal;
       color: #333333;
@@ -306,7 +306,7 @@
       <a href="#" class="menu-link" onclick="showList(); return false;"><span>F</span>ile</a>
       <a href="https://bogtrottr.github.io" class="menu-link"><span>L</span>inks</a>
       <a href="#" class="menu-link" onclick="showList(); return false;"><span>V</span>iew</a>
-      <a href="https://github.com/Bogtrottr/stories/edit/main/stories.json" target="_blank" class="menu-link"><span>W</span>riter Login</a>
+      <a href="https://github.com/Bogtrottr/stories/edit/main/index.html" target="_blank" class="menu-link"><span>W</span>riter Login</a>
       <a href="#" class="menu-link" onclick="alert('Charlie Love Stories v1.0\nClick any story button to open it.'); return false;"><span>H</span>elp</a>
     </div>
 
@@ -325,9 +325,7 @@
       <!-- View 1: Story Directory List -->
       <fieldset id="list-view">
         <legend>Available Stories</legend>
-        <div id="story-container" class="links-list">
-          <div style="text-align: center; padding: 10px;">Loading stories.json...</div>
-        </div>
+        <div id="story-container" class="links-list"></div>
       </fieldset>
 
       <!-- View 2: Story Document Reader -->
@@ -354,18 +352,34 @@
   </div>
 
   <script>
-    let allStories = [];
-
-    async function loadStories() {
-      try {
-        const res = await fetch('stories.json');
-        allStories = await res.json();
-        renderList();
-      } catch (err) {
-        document.getElementById('story-container').innerHTML =
-          '<div style="padding: 10px; text-align: center; color: red;">Error: Could not load stories.json</div>';
+    // ==========================================
+    // YOUR STORIES LIST (Edit or add more here!)
+    // ==========================================
+    const allStories = [
+      {
+        id: "midnight-signal",
+        title: "The Midnight Signal",
+        date: "November 20, 2026",
+        readTime: "3 min read",
+        genre: "Sci-Fi",
+        content: [
+          "The static always cleared three seconds before the tone began.",
+          "Leo leaned closer to the desk, adjusting the brass dial until the green phosphor glow of the oscilloscope steadied into a clean sine wave. He had been logging the transmissions since October, filling three spiral notebooks with rows of numbers that refused to match any known cipher.",
+          "Tonight, however, the pattern changed. Instead of the usual five-pulse cadence, the speaker crackled with a single, unmistakable voice."
+        ]
+      },
+      {
+        id: "lantern-market",
+        title: "The Lantern Market",
+        date: "November 15, 2026",
+        readTime: "2 min read",
+        genre: "Fantasy",
+        content: [
+          "You never bring coins to the Lantern Market. You bring a jar, a cork, and something you are willing to forget.",
+          "Mara kept her hand wrapped tightly around the glass bottle in her coat pocket. Inside swirled a faint silver mist—the memory of her seventh birthday, traded away for a compass that only pointed toward lost things."
+        ]
       }
-    }
+    ];
 
     function renderList() {
       const container = document.getElementById('story-container');
@@ -396,21 +410,3 @@
       story.content.forEach(paragraph => {
         const p = document.createElement('p');
         p.textContent = paragraph;
-        bodyEl.appendChild(p);
-      });
-
-      document.getElementById('list-view').style.display = 'none';
-      document.getElementById('reader-view').style.display = 'block';
-    }
-
-    function showList() {
-      document.getElementById('reader-view').style.display = 'none';
-      document.getElementById('list-view').style.display = 'block';
-      document.getElementById('statusText').textContent = 'C:\\Users\\Charlie_Love\\Stories';
-    }
-
-    loadStories();
-  </script>
-
-</body>
-</html>
