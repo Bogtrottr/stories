@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bogtrottr_Stories.exe - Short Stories</title>
+  <title>Charlie_Love_Stories.exe - Short Story Directory</title>
   <style>
     * {
       box-sizing: border-box;
@@ -12,214 +12,212 @@
     }
 
     body {
-      font-family: "MS Sans Serif", Tahoma, "Segoe UI", sans-serif;
-      font-size: 13px;
+      /* Classic Windows XP "Bliss" Rolling Hills Wallpaper */
+      background-color: #3a6ea5;
+      background-image: url("https://upload.wikimedia.org/wikipedia/en/2/27/Bliss_%28Windows_XP%29.png");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: "MS Sans Serif", Tahoma, Verdana, Arial, sans-serif;
+      font-size: 14px;
       color: #000000;
-      min-height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      padding: 40px 16px 60px;
-      /* Exact same Windows XP Bliss green hills & blue sky wallpaper */
-      background-color: #008080;
-      background-image: 
-        radial-gradient(ellipse 130% 60% at 30% 100%, #3a7a10 0%, #2e610c 60%, transparent 61%),
-        radial-gradient(ellipse 120% 50% at 75% 100%, #469113 0%, #37730e 65%, transparent 66%),
-        radial-gradient(circle at 20% 25%, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 30%),
-        radial-gradient(circle at 75% 20%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 35%),
-        linear-gradient(180deg, #1d52bc 0%, #5794e2 50%, #9fc3f7 75%, #cde1fc 100%);
-      background-attachment: fixed;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
     }
 
-    /* Classic Windows 95/98 Window Frame */
-    .win-window {
+    /* Main Window Container */
+    .window {
       width: 100%;
-      max-width: 560px;
+      max-width: 480px;
       background-color: #c0c0c0;
       border-top: 2px solid #ffffff;
       border-left: 2px solid #ffffff;
-      border-right: 2px solid #404040;
-      border-bottom: 2px solid #404040;
-      box-shadow: 2px 2px 0px #000000, 6px 8px 18px rgba(0, 0, 0, 0.35);
+      border-right: 2px solid #000000;
+      border-bottom: 2px solid #000000;
+      box-shadow: inset -1px -1px #808080, inset 1px 1px #dfdfdf, 4px 4px 12px rgba(0, 0, 0, 0.45);
       padding: 3px;
     }
 
-    /* Title Bar */
+    /* Classic Blue Title Bar */
     .title-bar {
       background: linear-gradient(90deg, #000080, #1084d0);
       color: #ffffff;
+      font-weight: bold;
       padding: 4px 6px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-weight: bold;
-      font-size: 13px;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.3px;
       user-select: none;
     }
 
-    .title-controls {
+    .title-bar-controls {
       display: flex;
       gap: 2px;
     }
 
-    .win-ctrl-btn {
-      width: 16px;
-      height: 15px;
-      background: #c0c0c0;
+    .title-btn {
+      width: 18px;
+      height: 16px;
+      background-color: #c0c0c0;
       border-top: 1px solid #ffffff;
       border-left: 1px solid #ffffff;
-      border-right: 1px solid #404040;
-      border-bottom: 1px solid #404040;
-      color: #000000;
-      font-size: 10px;
+      border-right: 1px solid #000000;
+      border-bottom: 1px solid #000000;
+      box-shadow: inset -1px -1px #808080;
+      font-size: 11px;
       font-weight: bold;
-      line-height: 11px;
+      line-height: 12px;
       text-align: center;
+      color: #000000;
       cursor: pointer;
     }
 
-    .win-ctrl-btn:active {
-      border-top: 1px solid #404040;
-      border-left: 1px solid #404040;
-      border-right: 1px solid #ffffff;
-      border-bottom: 1px solid #ffffff;
+    .title-btn:active {
+      border-top: 2px solid #000000;
+      border-left: 2px solid #000000;
+      border-right: 2px solid #ffffff;
+      border-bottom: 2px solid #ffffff;
     }
 
-    /* Menu Bar */
+    /* Decorative Menu Bar */
     .menu-bar {
       display: flex;
       gap: 14px;
       padding: 4px 8px;
+      font-size: 13px;
       border-bottom: 1px solid #808080;
-      font-size: 12px;
+      box-shadow: 0 1px 0 #ffffff;
+      user-select: none;
     }
 
-    .menu-item {
+    .menu-link {
       color: #000000;
       text-decoration: none;
       cursor: pointer;
     }
 
-    .menu-item:hover {
+    .menu-link:hover {
       background-color: #000080;
       color: #ffffff;
       padding: 0 3px;
       margin: 0 -3px;
     }
 
-    .menu-item span {
+    .menu-bar span::first-letter, .menu-link span::first-letter {
       text-decoration: underline;
     }
 
-    /* Window Body */
+    /* Inner Content Area */
     .window-body {
-      padding: 12px;
+      padding: 16px;
       display: flex;
       flex-direction: column;
       gap: 14px;
     }
 
-    /* Sunken White Header Box */
-    .sunken-box {
+    /* Profile / Header Box (Sunken Bevel) */
+    .profile-box {
       background-color: #ffffff;
       border-top: 2px solid #808080;
       border-left: 2px solid #808080;
       border-right: 2px solid #ffffff;
       border-bottom: 2px solid #ffffff;
-      padding: 12px;
+      box-shadow: inset 1px 1px #000000;
+      padding: 14px;
       display: flex;
-      gap: 14px;
       align-items: center;
+      gap: 14px;
     }
 
     .pixel-icon {
       width: 58px;
       height: 58px;
       background: #000080;
-      border: 2px solid #808080;
+      border: 1px solid #000000;
       color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
+      font-size: 26px;
       flex-shrink: 0;
     }
 
-    .header-text h1 {
-      font-size: 15px;
+    .profile-info h1 {
+      font-size: 16px;
       margin-bottom: 4px;
     }
 
-    .header-text p {
-      font-size: 12px;
-      line-height: 1.45;
+    .profile-info p {
+      font-size: 13px;
+      line-height: 1.35;
       color: #222222;
     }
 
-    /* Retro Fieldset Group Box */
+    /* Fieldset Groups */
     fieldset {
       border: 1px solid #808080;
-      box-shadow: 1px 1px 0px #ffffff;
-      padding: 12px;
+      box-shadow: 1px 1px 0 #ffffff, inset 1px 1px 0 #ffffff;
+      padding: 14px 12px 12px;
     }
 
     legend {
       padding: 0 6px;
-      font-size: 12px;
-      color: #000000;
-    }
-
-    /* Story Buttons Stack */
-    .story-btn-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .retro-btn {
-      width: 100%;
-      background-color: #c0c0c0;
-      border-top: 2px solid #ffffff;
-      border-left: 2px solid #ffffff;
-      border-right: 2px solid #404040;
-      border-bottom: 2px solid #404040;
-      box-shadow: 1px 1px 0px #000000;
-      padding: 10px 14px;
-      text-align: center;
-      cursor: pointer;
-      font-family: inherit;
-      color: #000000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-    }
-
-    .retro-btn:hover {
-      background-color: #c8c8c8;
-    }
-
-    .retro-btn:active {
-      border-top: 2px solid #404040;
-      border-left: 2px solid #404040;
-      border-right: 2px solid #ffffff;
-      border-bottom: 2px solid #ffffff;
-      box-shadow: none;
-      transform: translate(1px, 1px);
-    }
-
-    .btn-title {
-      font-weight: bold;
       font-size: 13px;
     }
 
-    .btn-meta {
-      font-size: 11px;
-      color: #333333;
+    .links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    /* Reader View */
+    /* Classic 3D Beveled Buttons */
+    .win-btn {
+      display: block;
+      width: 100%;
+      padding: 9px 12px;
+      background-color: #c0c0c0;
+      color: #000000;
+      text-decoration: none;
+      text-align: center;
+      font-weight: bold;
+      font-size: 14px;
+      font-family: inherit;
+      border-top: 2px solid #ffffff;
+      border-left: 2px solid #ffffff;
+      border-right: 2px solid #000000;
+      border-bottom: 2px solid #000000;
+      box-shadow: inset -1px -1px #808080, inset 1px 1px #dfdfdf;
+      cursor: pointer;
+    }
+
+    .win-btn:hover {
+      background-color: #c8c8c8;
+      outline: 1px dotted #000000;
+      outline-offset: -5px;
+    }
+
+    .win-btn:active {
+      border-top: 2px solid #000000;
+      border-left: 2px solid #000000;
+      border-right: 2px solid #ffffff;
+      border-bottom: 2px solid #ffffff;
+      box-shadow: inset 1px 1px #808080;
+      padding: 10px 11px 8px 13px;
+    }
+
+    .btn-subtitle {
+      font-size: 11px;
+      font-weight: normal;
+      color: #333333;
+      margin-top: 2px;
+    }
+
+    /* Reader View Document Pane */
     #reader-view {
       display: none;
     }
@@ -231,39 +229,20 @@
       margin-bottom: 10px;
     }
 
-    .small-btn {
-      background-color: #c0c0c0;
-      border-top: 2px solid #ffffff;
-      border-left: 2px solid #ffffff;
-      border-right: 2px solid #404040;
-      border-bottom: 2px solid #404040;
-      padding: 4px 12px;
-      font-family: inherit;
-      font-size: 12px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .small-btn:active {
-      border-top: 2px solid #404040;
-      border-left: 2px solid #404040;
-      border-right: 2px solid #ffffff;
-      border-bottom: 2px solid #ffffff;
-    }
-
     .document-pane {
       background-color: #ffffff;
       border-top: 2px solid #808080;
       border-left: 2px solid #808080;
       border-right: 2px solid #ffffff;
       border-bottom: 2px solid #ffffff;
-      padding: 18px 20px;
-      max-height: 60vh;
+      box-shadow: inset 1px 1px #000000;
+      padding: 16px;
+      max-height: 55vh;
       overflow-y: auto;
     }
 
     .doc-title {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: bold;
       margin-bottom: 4px;
     }
@@ -271,8 +250,8 @@
     .doc-meta {
       font-size: 11px;
       color: #555555;
-      padding-bottom: 10px;
-      margin-bottom: 14px;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
       border-bottom: 1px dashed #808080;
     }
 
@@ -284,7 +263,7 @@
     }
 
     .doc-body p {
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     /* Bottom Status Bar */
@@ -292,63 +271,70 @@
       display: flex;
       gap: 4px;
       margin-top: 2px;
+      font-size: 12px;
     }
 
     .status-panel {
+      flex: 1;
+      padding: 3px 6px;
       border-top: 1px solid #808080;
       border-left: 1px solid #808080;
       border-right: 1px solid #ffffff;
       border-bottom: 1px solid #ffffff;
-      padding: 3px 8px;
-      font-size: 11px;
-      color: #222222;
     }
 
-    .status-path {
-      flex-grow: 1;
+    .status-panel.small {
+      flex: 0 0 auto;
     }
   </style>
 </head>
 <body>
 
-  <div class="win-window">
+  <div class="window">
+    <!-- Title Bar -->
     <div class="title-bar">
-      <span>Bogtrottr_Stories.exe - Short Story Directory</span>
-      <div class="title-controls">
-        <button class="win-ctrl-btn" title="Minimize" onclick="showList()">_</button>
-        <button class="win-ctrl-btn" title="Maximize">□</button>
-        <button class="win-ctrl-btn" title="Close" onclick="showList()">×</button>
+      <span id="windowTitle">Charlie_Love_Stories.exe - Short Stories</span>
+      <div class="title-bar-controls">
+        <div class="title-btn" onclick="showList()">_</div>
+        <div class="title-btn">□</div>
+        <div class="title-btn" onclick="showList()">×</div>
       </div>
     </div>
 
+    <!-- Menu Bar -->
     <div class="menu-bar">
-      <a href="#" class="menu-item" onclick="showList(); return false;"><span>F</span>ile</a>
-      <a href="https://bogtrottr.github.io" class="menu-item"><span>L</span>inks</a>
-      <a href="#" class="menu-item" onclick="showList(); return false;"><span>V</span>iew</a>
-      <a href="https://github.com/Bogtrottr/stories/edit/main/stories.json" target="_blank" class="menu-item"><span>W</span>riter Login</a>
-      <a href="#" class="menu-item" onclick="alert('Bogtrottr Stories v1.0\nClick any story button to open it in the reader!'); return false;"><span>H</span>elp</a>
+      <a href="#" class="menu-link" onclick="showList(); return false;"><span>F</span>ile</a>
+      <a href="https://bogtrottr.github.io" class="menu-link"><span>L</span>inks</a>
+      <a href="#" class="menu-link" onclick="showList(); return false;"><span>V</span>iew</a>
+      <a href="https://github.com/Bogtrottr/stories/edit/main/stories.json" target="_blank" class="menu-link"><span>W</span>riter Login</a>
+      <a href="#" class="menu-link" onclick="alert('Charlie Love Stories v1.0\nClick any story button to open it.'); return false;"><span>H</span>elp</a>
     </div>
 
+    <!-- Main Window Body -->
     <div class="window-body">
-      <div class="sunken-box">
+      
+      <!-- Profile Box -->
+      <div class="profile-box">
         <div class="pixel-icon">📖</div>
-        <div class="header-text">
-          <h1>Bogtrottr's Stories</h1>
-          <p>G'day! Welcome to the official Bogtrottr story archive. Click a button below to read a short story, or use <b>Writer Login</b> in the menu bar to post a new entry.</p>
+        <div class="profile-info">
+          <h1>Charlie Love's Stories</h1>
+          <p>Welcome to my short story repository. Select a story below to read it in full text, or click <b>Writer Login</b> above to publish new entries.</p>
         </div>
       </div>
 
+      <!-- View 1: Story Directory List -->
       <fieldset id="list-view">
-        <legend>Bogtrottr's Short Stories</legend>
-        <div id="story-container" class="story-btn-list">
-          <div style="padding: 10px; text-align: center;">Loading stories.json...</div>
+        <legend>Available Stories</legend>
+        <div id="story-container" class="links-list">
+          <div style="text-align: center; padding: 10px;">Loading stories.json...</div>
         </div>
       </fieldset>
 
-      <fieldset id="reader-view">
+      <!-- View 2: Story Document Reader -->
+      <fieldset id="reader-view" style="display: none;">
         <legend id="reader-legend">Story_Reader.txt</legend>
         <div class="reader-toolbar">
-          <button class="small-btn" onclick="showList()">&larr; Back to Directory</button>
+          <button class="win-btn" style="width: auto; padding: 5px 12px; font-size: 12px;" onclick="showList()">&larr; Back to Directory</button>
           <span id="reader-readtime" style="font-size: 11px; color: #333;"></span>
         </div>
         <div class="document-pane">
@@ -358,10 +344,12 @@
         </div>
       </fieldset>
 
+      <!-- Bottom Status Bar -->
       <div class="status-bar">
-        <div id="status-path" class="status-panel status-path">C:\Users\Bogtrottr\Stories</div>
-        <div class="status-panel">Online</div>
+        <div class="status-panel" id="statusText">C:\Users\Charlie_Love\Stories</div>
+        <div class="status-panel small">Online</div>
       </div>
+
     </div>
   </div>
 
@@ -375,7 +363,7 @@
         renderList();
       } catch (err) {
         document.getElementById('story-container').innerHTML =
-          '<div style="padding: 10px;">Error: Could not find stories.json in repository.</div>';
+          '<div style="padding: 10px; text-align: center; color: red;">Error: Could not load stories.json</div>';
       }
     }
 
@@ -385,11 +373,11 @@
 
       allStories.forEach((story, index) => {
         const btn = document.createElement('button');
-        btn.className = 'retro-btn';
+        btn.className = 'win-btn';
         btn.onclick = () => openStory(index);
         btn.innerHTML = `
-          <span class="btn-title">📄 ${story.title}</span>
-          <span class="btn-meta">[${story.genre}] • ${story.date} • ${story.readTime}</span>
+          📄 ${story.title}
+          <div class="btn-meta">[${story.genre}] • ${story.date} • ${story.readTime}</div>
         `;
         container.appendChild(btn);
       });
@@ -401,7 +389,7 @@
       document.getElementById('reader-title').textContent = story.title;
       document.getElementById('reader-meta').textContent = `${story.genre} | Published ${story.date}`;
       document.getElementById('reader-readtime').textContent = story.readTime;
-      document.getElementById('status-path').textContent = `C:\\Users\\Bogtrottr\\Stories\\${story.id}.txt`;
+      document.getElementById('statusText').textContent = `C:\\Users\\Charlie_Love\\Stories\\${story.id}.txt`;
 
       const bodyEl = document.getElementById('reader-body');
       bodyEl.innerHTML = '';
@@ -418,10 +406,11 @@
     function showList() {
       document.getElementById('reader-view').style.display = 'none';
       document.getElementById('list-view').style.display = 'block';
-      document.getElementById('status-path').textContent = 'C:\\Users\\Bogtrottr\\Stories';
+      document.getElementById('statusText').textContent = 'C:\\Users\\Charlie_Love\\Stories';
     }
 
     loadStories();
   </script>
+
 </body>
 </html>
